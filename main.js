@@ -19,7 +19,8 @@ function randomRGB() {
 }
 
 class Ball {
-
+  static ballCount = 0;
+  
    constructor(x, y, velX, velY, color, size) {
       this.x = x;
       this.y = y;
@@ -27,6 +28,8 @@ class Ball {
       this.velY = velY;
       this.color = color;
       this.size = size;
+      Ball.ballCount++;
+    
    }
 
    draw() {
@@ -66,10 +69,16 @@ class Ball {
     
           if (distance < this.size + ball.size) {
             ball.color = this.color = randomRGB();
-          }
-        }
-      }
-    }
+            
+          } 
+          
+        } 
+      } 
+    } 
+    
+  static getBallCount() {
+    return Ball.ballCount;
+} 
 }
 
 class Shape {
@@ -136,6 +145,7 @@ class Shape {
 
 const balls = [];
 
+
 while (balls.length < 25) {
    const size = random(10,20);
    const ball = new Ball(
@@ -148,10 +158,11 @@ while (balls.length < 25) {
       randomRGB(),
       size
    );
-
+   
   balls.push(ball);
-  ballCount++; 
-  ballCountElement.textContent = `Number of balls: ${ballCount}`;
+  ballCountElement.textContent = `Number of balls: ${Ball.getBallCount()}`;
+
+  
 }
 
 const ballCountElement = document.getElementById("ballCount");
