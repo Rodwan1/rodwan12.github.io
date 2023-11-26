@@ -177,18 +177,17 @@ function loop() {
 window.addEventListener("keydown", (e) => {
   switch (e.key) {
     case "a":
-      this.x -= this.velX;
+      evilCircle.x -= evilCircle.velX;
       break;
     case "d":
-      this.x += this.velX;
+      evilCircle.x += evilCircle.velX;
       break;
     case "w":
-      this.y -= this.velY;
+      evilCircle.y -= evilCircle.velY;
       break;
     case "s":
-      this.y += this.velY;
+      evilCircle.y += evilCircle.velY;
       break;
   }
 });
-
 loop();
