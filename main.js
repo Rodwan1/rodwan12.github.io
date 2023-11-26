@@ -28,14 +28,7 @@ class Shape {
   }
 }
 
-class Ball extends Shape {
-  constructor(x, y, velX, velY, size, color) {
-    super(x, y, velX, velY);
-    this.size = size;
-    this.color = color;
-    this.exists = true;
-  }
-}
+
 
 class EvilCircle extends Shape {
   constructor(x, y) {
@@ -87,17 +80,13 @@ class EvilCircle extends Shape {
 }
 
 
-class Ball {
-
-  constructor(x, y, velX, velY, color, size) {
-    this.x = x;
-    this.y = y;
-    this.velX = velX;
-    this.velY = velY;
-    this.color = color;
+class Ball extends Shape {
+  constructor(x, y, velX, velY, size, color) {
+    super(x, y, velX, velY);
     this.size = size;
+    this.color = color;
+    this.exists = true;
   }
-
 
 
   draw() {
@@ -130,7 +119,7 @@ class Ball {
 
   collisionDetect() {
     for (const ball of balls) {
-      if (this !== ball) {
+      if (!(this === ball) && ball.exists) {
         const dx = this.x - ball.x;
         const dy = this.y - ball.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -143,9 +132,12 @@ class Ball {
   }
   
   
+  
 }
 
 const balls = [];
+const evilCircle = new EvilCircle(width / 5, height / 25);
+balls.push(evilCircle);
 
 while (balls.length < 25) {
   const size = random(10, 20);
