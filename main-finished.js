@@ -131,7 +131,9 @@ class Shape {
     }
   }
  
- 
+
+
+
 const balls = [];
 
 while (balls.length < 25) {
@@ -148,7 +150,12 @@ while (balls.length < 25) {
    );
 
   balls.push(ball);
+  ballCount++; 
+  ballCountElement.textContent = `Number of balls: ${ballCount}`;
 }
+
+const ballCountElement = document.getElementById("ballCount");
+let ballCount = 0;
 
 window.addEventListener("keydown", (e) => {
    switch (e.key) {
