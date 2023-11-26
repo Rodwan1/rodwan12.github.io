@@ -145,6 +145,9 @@ class Shape {
 
 const balls = [];
 
+const ballCountElement = document.getElementById("ballCount");
+let ballCount = 0;
+
 
 while (balls.length < 25) {
    const size = random(10,20);
@@ -164,9 +167,6 @@ while (balls.length < 25) {
 
   
 }
-
-const ballCountElement = document.getElementById("ballCount");
-let ballCount = 0;
 
 window.addEventListener("keydown", (e) => {
    switch (e.key) {
