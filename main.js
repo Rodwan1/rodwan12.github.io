@@ -28,7 +28,7 @@ class Ball {
       this.velY = velY;
       this.color = color;
       this.size = size;
-      Ball.ballCount++;
+    
     
    }
 
@@ -76,10 +76,9 @@ class Ball {
       } 
     } 
     
-  static getBallCount() {
-    return Ball.ballCount;
+  
 } 
-}
+
 
 class Shape {
    constructor(x, y, velX, velY) {
@@ -145,15 +144,11 @@ class Shape {
 
 const balls = [];
 
-const ballCountElement = document.getElementById("ballCount");
-let ballCount = 0;
 
 
 while (balls.length < 25) {
    const size = random(10,20);
    const ball = new Ball(
-      // ball position always drawn at least one ball width
-      // away from the edge of the canvas, to avoid drawing errors
       random(0 + size,width - size),
       random(0 + size,height - size),
       random(-7,7),
@@ -162,8 +157,7 @@ while (balls.length < 25) {
       size
    );
    
-  balls.push(ball);
-  ballCountElement.textContent = `Number of balls: ${Ball.getBallCount()}`;
+
 
   
 }
