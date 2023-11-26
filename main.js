@@ -167,9 +167,9 @@ function loop() {
     }
   }
 
-  EvilCircle.draw();
-  EvilCircle.checkBounds();
-  EvilCircle.collisionDetect();
+  evilCircle.draw();
+  evilCircle.checkBounds();
+  evilCircle.collisionDetect();
 
   requestAnimationFrame(loop);
 }
